@@ -11,7 +11,7 @@ function App() {
   const [analysts, setAnalysts] = useState();
   const [ratios, setRatios] = useState();
 
-  const alphaVantageKey = process.env.REACT_APP_ALPHA_VANTAGE_API_KEY; // .env file public for demo use
+  // const alphaVantageKey = process.env.REACT_APP_ALPHA_VANTAGE_API_KEY; // .env file public for demo use
 
   function extractStockData(data:any) {
     const extractedData:any = [];
@@ -20,7 +20,7 @@ function App() {
     if (data['Time Series (5min)']) {
       Object.entries(
         data['Time Series (5min)']
-      ).map(([key, value]) => {
+      ).map(([key, value]:any) => {
         extractedData.push({
           x: key,
           y: [
@@ -41,23 +41,26 @@ function App() {
     await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`).then((res) => {
       const vantageData = res.data;
       extractStockData(vantageData);
-    })
+    }).catch(error => {
+      console.error(error);
+    });
   }
 
   const getFinancials = async () => {
     // Docker Container - Flask API
-    await axios.get('http://127.0.0.1:8000/financials').then((res) => {
+    await axios.get('/financials').then((res) => {
       const localFinancials = res.data;
+      console.log(res)
       setAnalysts(localFinancials);
       setRatios(localFinancials);
-      console.log(res)
+    }).catch(error => {
+      console.error(error);
     });
-
   }
 
   useEffect(() => {
     getStockData('AAPL');
-    //getFinancials();
+    getFinancials();
   }, [])
 
   const props = {

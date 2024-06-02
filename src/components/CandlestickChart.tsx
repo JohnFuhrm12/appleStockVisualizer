@@ -3,12 +3,8 @@ import '../styles/candlestick.css';
 
 function CandlestickChart( {...props} ) {
     const stockData = props.stockData;
-    console.log(props.stockData)
 
-    const candleStickOptions = {
-        chart: {
-            type: "candlestick",
-        },
+    const candleStickOptions:any = {
         title: {
             text: "AAPL Apple Inc",
             align: "left",
@@ -63,7 +59,7 @@ function CandlestickChart( {...props} ) {
     <div id='candlestick'>
         {stockData ? 
          <ReactApexChart
-            series={[{data: props.stockData}]}
+            series={[{data: stockData}]}
             options={candleStickOptions}
             type='candlestick'
             height={650}
