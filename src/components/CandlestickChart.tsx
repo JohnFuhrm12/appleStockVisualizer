@@ -6,6 +6,7 @@ function CandlestickChart( {...props} ) {
 
   return (
     <nav id='candlestick'>
+        <h1>AAPL <span>Apple Inc</span></h1>
       <h2>Candlestick Chart</h2>
     </nav>
   )
