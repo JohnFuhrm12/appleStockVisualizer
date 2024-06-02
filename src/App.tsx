@@ -13,6 +13,8 @@ function App() {
     // Docker Container - Flask API
     axios.get('http://127.0.0.1:8000/financials').then((res) => {
       const localFinancials = res.data;
+      setAnalysts(localFinancials);
+      setRatios(localFinancials);
       console.log(res)
     });
 
