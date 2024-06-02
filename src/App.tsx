@@ -1,11 +1,16 @@
-import './App.css'
+import './App.css';
+import Navbar from './components/Navbar';
+import Analysts from './components/Analysts';
+import Ratios from './components/Ratios';
 
 function App() {
   return (
-    <div>
-      <h1>Hi</h1>
+    <div id='home'>
+      <Navbar/>
+      <Ratios/>
+      <Analysts/>
     </div>
   )
 }
 
-export default App
+export default App;
