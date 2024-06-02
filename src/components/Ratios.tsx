@@ -2,7 +2,6 @@ import '../styles/ratios.css';
 
 function Ratios( {...props} ) {
   const ratios = props.ratios;
-  console.log(ratios)
 
   return (
     <nav id='ratios'>

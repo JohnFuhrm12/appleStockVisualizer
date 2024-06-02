@@ -16,11 +16,13 @@ function App() {
   function extractStockData(data:any) {
     const extractedData:any = [];
 
+    console.log(data)
+
     // Extract neeeded values for chart from res data
     if (data['Time Series (5min)']) {
       Object.entries(
         data['Time Series (5min)']
-      ).map((key:any, value:any) => {
+      ).map(([key, value]) => {
         extractedData.push({
           x: key,
           y: [
@@ -33,15 +35,13 @@ function App() {
       })
     }
 
-    return extractedData;
+    setStockData(extractedData);
   }
 
   const getStockData = async (ticker:string) => {
-    await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=5min&apikey=${alphaVantageKey}`).then((res) => {
+    await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`).then((res) => {
       const vantageData = res.data;
-      const formattedData = extractStockData(vantageData);
-      setStockData(formattedData);
-      console.log(formattedData)
+      extractStockData(vantageData);
     })
   }
 
@@ -58,7 +58,7 @@ function App() {
 
   useEffect(() => {
     getStockData('AAPL');
-    getFinancials();
+    //getFinancials();
   }, [])
 
   const props = {
@@ -70,7 +70,7 @@ function App() {
   return (
     <div id='home'>
       <Navbar/>
-      <CandlestickChart/>
+      <CandlestickChart {...props}/>
       <Ratios {...props}/>
       <Analysts {...props}/>
     </div>
