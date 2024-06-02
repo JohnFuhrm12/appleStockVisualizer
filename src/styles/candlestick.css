@@ -1,0 +1,11 @@
+#candlestick {
+    border: solid 2px rgb(135, 135, 135);
+    border-radius: 10px;
+    margin: 15px;
+    padding: 5px;
+    padding-inline: 0;
+}
+
+#candlestick .apexcharts-tooltip {
+    color: rgb(126, 126, 126);
+}

@@ -1,7 +1,8 @@
 html, body {
   margin: 0;
-  background-color: rgb(46, 53, 65);
+  background-color: rgb(35, 39, 47);
   color: white;
+  overflow-x: hidden;
 }
 
 p {

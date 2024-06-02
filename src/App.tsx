@@ -16,8 +16,6 @@ function App() {
   function extractStockData(data:any) {
     const extractedData:any = [];
 
-    console.log(data)
-
     // Extract neeeded values for chart from res data
     if (data['Time Series (5min)']) {
       Object.entries(
@@ -39,6 +37,7 @@ function App() {
   }
 
   const getStockData = async (ticker:string) => {
+    // Demo data - change api key to env and change IBM to AAPL (ticker)
     await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`).then((res) => {
       const vantageData = res.data;
       extractStockData(vantageData);
