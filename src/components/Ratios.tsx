@@ -1,6 +1,7 @@
 import '../styles/ratios.css';
 
-function Ratios() {
+function Ratios( {...props} ) {
+
   return (
     <nav id='ratios'>
       <h2>Ratios</h2>

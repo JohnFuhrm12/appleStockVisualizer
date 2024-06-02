@@ -1,6 +1,6 @@
 import '../styles/analysts.css';
 
-function Analysts() {
+function Analysts( {...props} ) {
   return (
     <nav id='analysts'>
       <h2>Analysts</h2>
