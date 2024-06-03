@@ -9,6 +9,8 @@ Financial data is pulled from Flask, if the container is not running, it will pu
 
 Stock data for the candlestick chart is pulled from the Alpha Vantage API, it is currently pulling IBM stock data (Free Demo Data) but can be changed to AAPL stock by using the free API key - limit is only 25 requests per day. For that reason the default will be IBM data.
 
+The candlestick chart was created with the help of the React Apex Chart library.
+
 # Docker Instructions
 
 docker pull soester10/unlevered-flask-dummy-financials:latest
