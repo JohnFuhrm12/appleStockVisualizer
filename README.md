@@ -14,3 +14,5 @@ Stock data for the candlestick chart is pulled from the Alpha Vantage API, it is
 docker pull soester10/unlevered-flask-dummy-financials:latest
 
 docker run -p 8000:5000 soester10/unlevered-flask-dummy-financials
+
+![AAPL](https://github.com/JohnFuhrm12/appleStockVisualizer/assets/61069716/28412cff-b12f-4dce-b2ab-23fb771374c5)
