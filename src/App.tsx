@@ -4,12 +4,11 @@ import CandlestickChart from './components/CandlestickChart';
 import Analysts from './components/Analysts';
 import Ratios from './components/Ratios';
 import axios from 'axios';
-import './App.css';
+import './styles/app.css';
 
 function App() {
   const [stockData, setStockData] = useState();
-  const [analysts, setAnalysts] = useState();
-  const [ratios, setRatios] = useState();
+  const [financials, setFinancials] = useState();
 
   // const alphaVantageKey = process.env.REACT_APP_ALPHA_VANTAGE_API_KEY; // .env file public for demo use
 
@@ -37,6 +36,7 @@ function App() {
   }
 
   const getStockData = async (ticker:string) => {
+    console.log(ticker)
     // Demo data - change api key to env and change IBM to AAPL (ticker)
     await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`).then((res) => {
       const vantageData = res.data;
@@ -50,9 +50,7 @@ function App() {
     // Docker Container - Flask API
     await axios.get('/financials').then((res) => {
       const localFinancials = res.data;
-      console.log(res)
-      setAnalysts(localFinancials);
-      setRatios(localFinancials);
+      setFinancials(localFinancials);
     }).catch(error => {
       console.error(error);
     });
@@ -65,8 +63,7 @@ function App() {
 
   const props = {
     stockData,
-    ratios, 
-    analysts
+    financials
   }
 
   return (

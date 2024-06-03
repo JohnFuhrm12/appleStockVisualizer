@@ -1,8 +1,26 @@
 import ReactApexChart from 'react-apexcharts';
 import '../styles/candlestick.css';
+import { useEffect, useState } from 'react';
 
 function CandlestickChart( {...props} ) {
+    const [windowSize, setWindowSize] = useState(window.innerWidth);
     const stockData = props.stockData;
+
+    useEffect(() => {
+        const handleResize = () => {
+        setWindowSize(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+        window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        console.log(windowSize);
+    })
 
     const candleStickOptions:any = {
         title: {
@@ -62,7 +80,7 @@ function CandlestickChart( {...props} ) {
             series={[{data: stockData}]}
             options={candleStickOptions}
             type='candlestick'
-            height={650}
+            height={windowSize > 750 ? 650 : 350}
         />
         : <></>}
     </div>

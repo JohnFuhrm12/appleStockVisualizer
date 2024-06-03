@@ -1,0 +1,20 @@
+.tableContainer {
+    padding-inline: 15px;
+}
+
+.financialTable {
+    width: fit-content;
+    border-collapse: collapse;
+    border: solid 2px rgb(135, 135, 135);
+}
+
+.financialTable th,
+.financialTable td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 2px solid rgb(135, 135, 135);
+}
+  
+.financialTable th {
+    background-color: rgb(46, 53, 65);
+}
