@@ -70,13 +70,13 @@ function App() {
   }
 
   const getStockData = async (ticker:string) => {
-    console.log(ticker)
     // Demo data - change api key to env and change IBM to AAPL (ticker)
     await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`).then((res) => {
       const vantageData = res.data;
       extractStockData(vantageData);
     }).catch(error => {
       console.error(error);
+      console.log(ticker) // For GH Deploy 
     });
   }
 
