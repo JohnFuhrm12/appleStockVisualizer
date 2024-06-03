@@ -76,7 +76,7 @@ function App() {
       extractStockData(vantageData);
     }).catch(error => {
       console.error(error);
-      // console.log(ticker) // For GH Deploy 
+      console.log(ticker) // For Vercel Deploy 
     });
   }
 
