@@ -3,7 +3,6 @@ import '../styles/financials.css';
 
 function Ratios( {...props} ) {
   const financials = props.financials || localFinancials; // In case the Docker container is not running, display a local version
-  console.log(financials)
 
   return (
     <nav className='tableContainer'>

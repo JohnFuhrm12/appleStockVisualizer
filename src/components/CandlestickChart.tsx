@@ -3,7 +3,7 @@ import '../styles/candlestick.css';
 import { useEffect, useState } from 'react';
 
 function CandlestickChart( {...props} ) {
-    const [windowSize, setWindowSize] = useState(window.innerWidth);
+    const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
     const stockData = props.stockData;
 
     useEffect(() => {
@@ -17,10 +17,6 @@ function CandlestickChart( {...props} ) {
         window.removeEventListener('resize', handleResize);
         };
     }, []);
-
-    useEffect(() => {
-        console.log(windowSize);
-    })
 
     const candleStickOptions:any = {
         title: {
